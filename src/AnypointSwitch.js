@@ -21,6 +21,8 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
       flex-direction: row;
       align-items: center;
       position: relative;
+      height: 48px;
+      margin: 0 12px;
     }
 
     :host([disabled]) {
@@ -86,7 +88,6 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
       position: absolute;
       left: -18px;
       right: auto;
-      top: -14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -127,6 +128,10 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
 
     :host([checked]) .toggle-container {
       transform: translateX(20px);
+    }
+
+    :host([compatibility]) {
+      height: 36px;
     }
 
     .anypoint.container {
