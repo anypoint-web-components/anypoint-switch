@@ -142,20 +142,20 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     }
 
     .anypoint .tracker {
-      background: var(--anypoint-color-aluminum2);
+      background: var(--anypoint-switch-background-color, var(--anypoint-color-aluminum2));
       height: 100%;
       width: inherit;
       position: relative;
     }
 
     :host(:focus) .tracker {
-      background: var(--anypoint-color-aluminum3);
+      background: var(--anypoint-switch-focus-background-color, var(--anypoint-color-aluminum3));
     }
 
     .anypoint .tracker:before {
       position: absolute;
       content: "";
-      background-color: #58595a;
+      background-color: var(--anypoint-switch-tracker-background-color, var(--anypoint-color-steel2));
       height: 2px;
       top: calc(50% - 2px);
       left: 15%;
@@ -171,25 +171,26 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
       left: 5%;
       width: 28px;
       height: 28px;
-      background: var(--anypoint-color-aluminum3);
+      background: var(--anypoint-switch-toggle-background-color, var(--anypoint-color-aluminum3));
       border-radius: 100%;
       cursor: pointer;
       transition: background-color .15s, transform .15s ease-out;
     }
 
     :host(:focus) .anypoint .toggle {
-      background: var(--anypoint-color-aluminum4);
+      background: var(--anypoint-switch-toggle-focus-background-color, var(--anypoint-color-aluminum4));
     }
 
     .anypoint .icon {
       display: block;
       height: 16px;
       width: 16px;
+      fill: var(--anypoint-switch-toggle-icon-color, currentColor);
     }
 
     :host([checked]) .anypoint .toggle {
-      background-color: #6b8a99;
-      fill: #fff;
+      background-color: var(--anypoint-switch-toggle-checked-background-color, var(--anypoint-color-robustBlue2));
+      color: #fff;
       transform: translateX(28px);
     }
     `;
