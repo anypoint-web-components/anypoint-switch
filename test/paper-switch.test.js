@@ -24,6 +24,10 @@ describe('<anypoint-switch>', function() {
     return (await fixture(`<anypoint-switch role="radio">Batman</anypoint-switch>`));
   }
 
+  async function disabledFixture() {
+    return (await fixture(`<anypoint-switch disabled tabindex="1">Batman</anypoint-switch>`));
+  }
+
   async function compatibilityFixture() {
     return (await fixture(`<anypoint-switch compatibility>on/off</anypoint-switch>`));
   }
@@ -147,6 +151,23 @@ describe('<anypoint-switch>', function() {
       const checkedIcon = element.shadowRoot.querySelector('.anypoint .icon svg');
       assert.ok(checkedIcon, 'has checked icon');
       assert.notEqual(checkedIcon, uncheckedIcon, 'it is not unchecked icon');
+    });
+  });
+
+  describe('Disabled state', () => {
+    let element;
+    beforeEach(async () => {
+      element = await disabledFixture();
+    });
+
+    it('sets tabindex to -1', () => {
+      assert.equal(element.getAttribute('tabindex'), '-1');
+    });
+
+    it('enabling button sets tabindex', async () => {
+      element.disabled = false;
+      await nextFrame();
+      assert.equal(element.getAttribute('tabindex'), '0');
     });
   });
 

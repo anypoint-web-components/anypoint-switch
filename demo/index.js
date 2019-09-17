@@ -10,14 +10,17 @@ class DemoPage extends ArcDemoPage {
     super();
     this.initObservableProperties([
       'demoCompatibility',
-      'demoDisabled'
+      'demoDisabled',
+      'disabledSwitch'
     ]);
     this._componentName = 'anypoint-switch';
 
     this.demoStates = ['Material Design', 'Anypoint'];
+    this.disabledSwitch = true;
 
     this._demoStateHandler = this._demoStateHandler.bind(this);
     this._toggleMainOption = this._toggleMainOption.bind(this);
+    this._toggleDisabled = this._toggleDisabled.bind(this);
   }
 
   _toggleMainOption(e) {
@@ -35,6 +38,10 @@ class DemoPage extends ArcDemoPage {
         this.demoCompatibility = true;
         break;
     }
+  }
+
+  _toggleDisabled() {
+    this.disabledSwitch = !this.disabledSwitch;
   }
 
   _demoTemplate() {
@@ -97,6 +104,9 @@ class DemoPage extends ArcDemoPage {
   }
 
   _usageTemplate() {
+    const {
+      disabledSwitch
+    } = this;
     return html`
       <section class="documentation-section">
         <h2>Usage</h2>
@@ -116,6 +126,10 @@ class DemoPage extends ArcDemoPage {
           documentation in Material Defign documentation for principles and
           anatomy of a switch button.
         </p>
+
+        <h3>Disable in HTML template</h3>
+        <anypoint-switch ?disabled="${disabledSwitch}">off/on</anypoint-switch>
+        <button @click="${this._toggleDisabled}">Toggle disabled</button>
       </section>
     `;
   }

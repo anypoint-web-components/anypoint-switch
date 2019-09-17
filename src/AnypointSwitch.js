@@ -289,6 +289,11 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     this.checked = !!state;
   }
 
+  _disabledChanged(disabled) {
+    this.setAttribute('aria-disabled', disabled ? 'true' : 'false');
+    this.setAttribute('tabindex', disabled ? '-1' : '0');
+  }
+
   _mdContent() {
     return html`<div class="track"></div>
     <div class="toggle-container">

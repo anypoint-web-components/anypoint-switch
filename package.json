@@ -1,7 +1,7 @@
 {
   "name": "@anypoint-web-components/anypoint-switch",
   "description": "A toggle button styled for Material Design and Anypoint platform.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "Apache-2.0",
   "main": "anypoint-switch.js",
   "keywords": [
