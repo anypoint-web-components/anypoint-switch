@@ -63,3 +63,38 @@
 
 
 
+<a name="0.1.4"></a>
+## 0.1.4 (2020-05-29)
+
+### Build
+
+* bumping version [d7aee47](https://github.com/anypoint-web-components/anypoint-switch/commit/d7aee476661da784eef308baf4d0711967b13de2) by Pawel
+* publishing stable release [9507a67](https://github.com/anypoint-web-components/anypoint-switch/commit/9507a67e5a6f3179b482acda2e2e3042c98534a4) by Pawel
+
+
+### Update
+
+* updating styling [467c774](https://github.com/anypoint-web-components/anypoint-switch/commit/467c77494ac54f3b7bdfd5ecc58df744dfcae3fe) by Pawel
+
+
+### Features
+
+* adding variables to support dark theme [27bfbd7](https://github.com/anypoint-web-components/anypoint-switch/commit/27bfbd798e366f51195c119dd74efe53f4f57cce) by Pawel
+
+
+### Bug Fixes
+
+* tabindex setting when disabled in HTML template [609f568](https://github.com/anypoint-web-components/anypoint-switch/commit/609f56810f494503cc10f9a1ddca070eb828632b) by Pawel
+
+
+### Refactor
+
+* upgrading to open-wc standards [1a0a4c2](https://github.com/anypoint-web-components/anypoint-switch/commit/1a0a4c290228eaa195716700e201147250be5dbe) by Pawel
+
+
+### Testing
+
+* lowering coverage because of form assocc. custom elements [52d0896](https://github.com/anypoint-web-components/anypoint-switch/commit/52d08968263b32913e899379d4e97ea90caa57bb) by Pawel
+* updated Travis configuration to connect to Sauce Labs [edc74fc](https://github.com/anypoint-web-components/anypoint-switch/commit/edc74fc739acf36cf5aa95fdb32de4a27e540c03) by Pawel
+
+
