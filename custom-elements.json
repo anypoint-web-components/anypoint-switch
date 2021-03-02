@@ -1,0 +1,220 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "anypoint-switch",
+      "path": "./anypoint-switch.js",
+      "description": "`anypoint-switch`",
+      "attributes": [
+        {
+          "name": "formDisabled",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "description": "Enables Anypoint compatibility",
+          "type": "boolean"
+        },
+        {
+          "name": "active",
+          "description": "If true, the button is a toggle and is currently in the active state.",
+          "type": "boolean"
+        },
+        {
+          "name": "pressed",
+          "description": "True when the element is currently being pressed as\nthe user is holding down the button on the element.",
+          "type": "boolean"
+        },
+        {
+          "name": "ariaActiveAttribute",
+          "description": "The aria attribute to be set if the button is a toggle and in the\nactive state.",
+          "type": "string"
+        },
+        {
+          "name": "focused",
+          "description": "If true the element currently has focus.",
+          "type": "boolean"
+        },
+        {
+          "name": "checked",
+          "description": "Gets or sets the state, `true` is checked and `false` is unchecked.",
+          "type": "boolean"
+        },
+        {
+          "name": "toggles",
+          "description": "If true, the button toggles the active state with each click or press\nof the space bar.",
+          "type": "boolean"
+        },
+        {
+          "name": "name",
+          "description": "The name of this form element.",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "description": "The value of this form control"
+        },
+        {
+          "name": "required",
+          "description": "Set to true to mark the input as required. If used in a form, a\ncustom element that uses this mixin should also use\nAnypointValidatableMixin and define a custom validation method.\nOtherwise, a `required` element will always be considered valid.\nIt's also strongly recommended to provide a visual style for the element\nwhen its value is invalid.",
+          "type": "boolean"
+        },
+        {
+          "name": "disabled",
+          "description": "If true the button is a toggle and is currently in the active state.",
+          "type": "boolean"
+        },
+        {
+          "name": "validator",
+          "description": "Name of the validator or validators to use.\nIf the element should be validated by more than one validator then separate names with\nspace. See docs for `ValidatorMixin` for description of how to define a\nvalidator.",
+          "type": "string"
+        },
+        {
+          "name": "invalid",
+          "description": "True if the last call to `validate` is invalid.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "styles",
+          "type": "CSSResult"
+        },
+        {
+          "name": "formDisabled",
+          "attribute": "formDisabled",
+          "type": "boolean"
+        },
+        {
+          "name": "compatibility",
+          "attribute": "compatibility",
+          "description": "Enables Anypoint compatibility",
+          "type": "boolean"
+        },
+        {
+          "name": "active",
+          "attribute": "active",
+          "description": "If true, the button is a toggle and is currently in the active state.",
+          "type": "boolean"
+        },
+        {
+          "name": "pressed",
+          "attribute": "pressed",
+          "description": "True when the element is currently being pressed as\nthe user is holding down the button on the element.",
+          "type": "boolean"
+        },
+        {
+          "name": "pointerDown",
+          "description": "True when the a pointer device is currently pointing on the element\nand is in \"down\" state.",
+          "type": "boolean"
+        },
+        {
+          "name": "receivedFocusFromKeyboard",
+          "description": "True when the element received focus from the keyboard.",
+          "type": "boolean"
+        },
+        {
+          "name": "ariaActiveAttribute",
+          "attribute": "ariaActiveAttribute",
+          "description": "The aria attribute to be set if the button is a toggle and in the\nactive state.",
+          "type": "string"
+        },
+        {
+          "name": "focused",
+          "attribute": "focused",
+          "description": "If true the element currently has focus.",
+          "type": "boolean"
+        },
+        {
+          "name": "checked",
+          "attribute": "checked",
+          "description": "Gets or sets the state, `true` is checked and `false` is unchecked.",
+          "type": "boolean"
+        },
+        {
+          "name": "toggles",
+          "attribute": "toggles",
+          "description": "If true, the button toggles the active state with each click or press\nof the space bar.",
+          "type": "boolean"
+        },
+        {
+          "name": "name",
+          "attribute": "name",
+          "description": "The name of this form element.",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "attribute": "value",
+          "description": "The value of this form control"
+        },
+        {
+          "name": "required",
+          "attribute": "required",
+          "description": "Set to true to mark the input as required. If used in a form, a\ncustom element that uses this mixin should also use\nAnypointValidatableMixin and define a custom validation method.\nOtherwise, a `required` element will always be considered valid.\nIt's also strongly recommended to provide a visual style for the element\nwhen its value is invalid.",
+          "type": "boolean"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "If true the button is a toggle and is currently in the active state.",
+          "type": "boolean"
+        },
+        {
+          "name": "validator",
+          "attribute": "validator",
+          "description": "Name of the validator or validators to use.\nIf the element should be validated by more than one validator then separate names with\nspace. See docs for `ValidatorMixin` for description of how to define a\nvalidator.",
+          "type": "string"
+        },
+        {
+          "name": "validationStates",
+          "description": "After calling `validate()` this is be populated by latest result of the\ntest for each validator. Result item contains following properties:\n\n- validator `string` Name of the validator\n- valid `boolean` Result of the test\n- message `string` Error message\n\nThis property is `undefined` if `validator` is not set.",
+          "type": "ValidationResult[]"
+        },
+        {
+          "name": "invalid",
+          "attribute": "invalid",
+          "description": "True if the last call to `validate` is invalid.",
+          "type": "boolean"
+        }
+      ],
+      "events": [
+        {
+          "name": "pressedchange",
+          "description": "When the `pressed` property has changed"
+        },
+        {
+          "name": "activechange",
+          "description": "When the `active` property has changed"
+        },
+        {
+          "name": "pressed-changed",
+          "description": "This event is deprecated"
+        },
+        {
+          "name": "active-changed",
+          "description": "This event is deprecated"
+        },
+        {
+          "name": "focusedchange",
+          "description": "When the `focused` property has changed"
+        },
+        {
+          "name": "disabledchange",
+          "description": "When the `disabled` property has changed"
+        },
+        {
+          "name": "iron-change",
+          "description": "Deprecated"
+        },
+        {
+          "name": "checked-changed",
+          "description": "Deprecated"
+        },
+        {
+          "name": "change"
+        }
+      ]
+    }
+  ]
+}

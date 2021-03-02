@@ -5,18 +5,22 @@ import { ButtonStateMixin, ControlStateMixin } from '@anypoint-web-components/an
 /**
  * `anypoint-switch`
  */
-export class AnypointSwitch {
-  readonly styles: CSSResult;
+export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedElementMixin(LitElement))) {
+  get styles(): CSSResult;
 
+  /**
+   * @attribute
+   */
   formDisabled: boolean;
   /**
    * Enables Anypoint compatibility
+   * @attribute
    */
   compatibility: boolean;
 
-  readonly formAssociated: boolean;
+  static get formAssociated(): boolean;
 
-  readonly form: HTMLFontElement;
+  static get form(): HTMLFontElement;
 
   constructor();
 
@@ -46,7 +50,4 @@ export class AnypointSwitch {
   _compatibleContent(): TemplateResult;
 
   render(): TemplateResult;
-}
-
-export interface AnypointSwitch extends ButtonStateMixin, ControlStateMixin, CheckedElementMixin, LitElement {
 }
