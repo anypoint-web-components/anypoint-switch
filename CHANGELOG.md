@@ -98,3 +98,29 @@
 * updated Travis configuration to connect to Sauce Labs [edc74fc](https://github.com/anypoint-web-components/anypoint-switch/commit/edc74fc739acf36cf5aa95fdb32de4a27e540c03) by Pawel
 
 
+<a name="0.1.6"></a>
+## [0.1.6](https://github.com/anypoint-web-components/anypoint-switch/compare/0.1.3...0.1.6) (2021-03-30)
+
+### Build
+
+* bump version [314cf81](https://github.com/anypoint-web-components/anypoint-switch/commit/314cf81fe96660efb5a4d1428d71eb1e40c371b1) by Carolina Wright
+* bumping version [753097d](https://github.com/anypoint-web-components/anypoint-switch/commit/753097dd9c4051a030ddb4f266cfb1c10e8d538d) by Pawel Psztyc
+
+
+### Update
+
+* embed styles in component [527cfa0](https://github.com/anypoint-web-components/anypoint-switch/commit/527cfa0f39c6d839e74fa935bd55e79ae5370398) by Carolina Wright
+* updating test runner & deps [4fd8ae3](https://github.com/anypoint-web-components/anypoint-switch/commit/4fd8ae3262845a68bbd9d381cf33d9566c2e4205) by Pawel Psztyc
+* [ci skip] automated merge master->stage. syncing main branches [b6a6d2a](https://github.com/anypoint-web-components/anypoint-switch/commit/b6a6d2a39a3efc0056a2cfbd91d8154f809cd444) by Ci agent
+
+
+### Bug Fixes
+
+* typo [2af1690](https://github.com/anypoint-web-components/anypoint-switch/commit/2af1690338740ea72058eadec4b1e6d890545a3f) by Carolina Wright
+
+
+### Refactor
+
+* upgrading to open-wc standards [1a0a4c2](https://github.com/anypoint-web-components/anypoint-switch/commit/1a0a4c290228eaa195716700e201147250be5dbe) by Pawel
+
+
