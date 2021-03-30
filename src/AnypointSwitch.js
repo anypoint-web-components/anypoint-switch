@@ -148,7 +148,7 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
   render() {
     const { compatibility } = this;
     return html`
-    <styles>${this.styles}</styles>
+    <style>${this.styles}</style>
     ${compatibility ?
       this._compatibleContent() :
       this._mdContent()}
