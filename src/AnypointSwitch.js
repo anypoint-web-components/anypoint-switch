@@ -10,7 +10,8 @@ import styles from './Styles.js';
  * `anypoint-switch`
  */
 export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedElementMixin(LitElement))) {
-  static get styles() {
+  // eslint-disable-next-line class-methods-use-this
+  get styles() {
     return styles;
   }
 
@@ -147,6 +148,7 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
   render() {
     const { compatibility } = this;
     return html`
+    <style>${this.styles}</style>
     ${compatibility ?
       this._compatibleContent() :
       this._mdContent()}
