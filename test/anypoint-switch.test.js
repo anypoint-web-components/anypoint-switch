@@ -3,51 +3,86 @@ import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.
 import '@anypoint-web-components/anypoint-styles/colors.js';
 import '../anypoint-switch.js';
 
+/** @typedef {import('../').AnypointSwitch} AnypointSwitch */
+
 describe('<anypoint-switch>', () => {
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function basicFixture() {
     return (fixture(`<anypoint-switch>on/off</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function noLabelFixture() {
     return (fixture(`<anypoint-switch></anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function checkedFixture() {
     return (fixture(`<anypoint-switch checked>on/off</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function tabIndexFixture() {
     return (fixture(`<anypoint-switch tabindex="1">on/off</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function roleFixture() {
     return (fixture(`<anypoint-switch role="radio">Batman</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function disabledFixture() {
     return (fixture(`<anypoint-switch disabled tabindex="1">Batman</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function compatibilityFixture() {
     return (fixture(`<anypoint-switch compatibility>on/off</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<AnypointSwitch>}
+   */
   async function checkedCompatibilityFixture() {
     return (fixture(`<anypoint-switch checked compatibility>on/off</anypoint-switch>`));
   }
 
+  /**
+   * @returns {Promise<HTMLFormElement>}
+   */
   async function formFixture() {
     return (fixture(`<form>
       <anypoint-switch name="test-name" value="test-value"></anypoint-switch>
     </form>`));
   }
 
+  /**
+   * @returns {Promise<HTMLFormElement>}
+   */
   async function formCheckedFixture() {
     return (fixture(`<form>
       <anypoint-switch name="test-name" value="test-value" checked></anypoint-switch>
     </form>`));
   }
 
+  /**
+   * @returns {Promise<HTMLFormElement>}
+   */
   async function formCheckedRequiredFixture() {
     return (fixture(`<form>
       <anypoint-switch name="test-name" value="test-value" checked required></anypoint-switch>
@@ -109,6 +144,7 @@ describe('<anypoint-switch>', () => {
     it('Has associated form', async () => {
       const form = await formFixture();
       const element = form.querySelector('anypoint-switch');
+      // @ts-ignore
       if (element._internals) {
         assert.isTrue(element.form === form);
       }
@@ -117,6 +153,7 @@ describe('<anypoint-switch>', () => {
     it('Form reset resets the control', async () => {
       const form = await formCheckedFixture();
       const element = form.querySelector('anypoint-switch');
+      // @ts-ignore
       if (element._internals) {
         form.reset();
         assert.isFalse(element.checked);
@@ -126,6 +163,7 @@ describe('<anypoint-switch>', () => {
     it('Sets custom validation', async () => {
       const form = await formCheckedRequiredFixture();
       const element = form.querySelector('anypoint-switch');
+      // @ts-ignore
       if (element._internals) {
         element.checked = false;
         assert.isTrue(element.matches(':invalid'));
@@ -225,6 +263,48 @@ describe('<anypoint-switch>', () => {
     it('is accessible when checked  (compatibility)', async () => {
       const element = await checkedCompatibilityFixture();
       await assert.isAccessible(element);
+    });
+  });
+
+  describe('change', () => {
+    let element = /** @type AnypointSwitch */ (null);
+    beforeEach(async () => {
+      element = await basicFixture();
+    });
+
+    it('Getter returns previously registered handler', () => {
+      assert.equal(element.onchange, null);
+      const f = () => {};
+      element.onchange = f;
+      assert.isTrue(element.onchange === f);
+    });
+
+    it('Calls registered function', () => {
+      let called = false;
+      const f = () => {
+        called = true;
+      };
+      element.onchange = f;
+      element.click();
+      element.onchange = null;
+      assert.isTrue(called);
+    });
+
+    it('Unregisteres old function', () => {
+      let called1 = false;
+      let called2 = false;
+      const f1 = () => {
+        called1 = true;
+      };
+      const f2 = () => {
+        called2 = true;
+      };
+      element.onchange = f1;
+      element.onchange = f2;
+      element.click();
+      element.onchange = null;
+      assert.isFalse(called1);
+      assert.isTrue(called2);
     });
   });
 });
