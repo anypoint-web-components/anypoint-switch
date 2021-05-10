@@ -33,6 +33,32 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     return this._internals && this._internals.form;
   }
 
+  /**
+   * @returns {EventListener} Previously registered event listener or null
+   */
+  get onchange() {
+    return this._onchange || null;
+  }
+
+  /**
+   * @param {EventListener} value An event listener for the `change` event or null to unregister
+   */
+  set onchange(value) {
+    const old = this._onchange;
+    if (old === value) {
+      return;
+    }
+    if (old) {
+      this.removeEventListener('change', old);
+    }
+    if (typeof value !== 'function') {
+      this._onchange = null;
+    } else {
+      this._onchange = value;
+      this.addEventListener('change', value);
+    }
+  }
+
   constructor() {
     super();
     this.ariaActiveAttribute = 'aria-checked';
@@ -74,13 +100,20 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     this.checked = this.active;
   }
 
+  /**
+   * @param {MouseEvent} e 
+   */
   _clickHandler(e) {
     if (this.disabled) {
       return;
     }
     super._clickHandler(e);
+    this.dispatchEvent(new Event('change'));
   }
 
+  /**
+   * @param {boolean} value
+   */
   _checkedChanged(value) {
     super._checkedChanged(value);
     this.setAttribute('aria-checked', value ? 'true' : 'false');

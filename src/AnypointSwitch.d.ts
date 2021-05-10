@@ -4,6 +4,7 @@ import { ButtonStateMixin, ControlStateMixin } from '@anypoint-web-components/an
 
 /**
  * `anypoint-switch`
+ * @fires change Dispatched when the selection change due to a user interaction.
  */
 export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedElementMixin(LitElement))) {
   get styles(): CSSResult;
@@ -20,7 +21,9 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
 
   static get formAssociated(): boolean;
 
-  static get form(): HTMLFontElement;
+  get form(): HTMLFormElement;
+
+  onchange: EventListener;
 
   constructor();
 

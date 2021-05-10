@@ -92,6 +92,14 @@
           "type": "boolean"
         },
         {
+          "name": "form",
+          "type": "HTMLFormElement"
+        },
+        {
+          "name": "onchange",
+          "type": "EventListener"
+        },
+        {
           "name": "active",
           "attribute": "active",
           "description": "If true, the button is a toggle and is currently in the active state.",
@@ -130,6 +138,11 @@
           "attribute": "checked",
           "description": "Gets or sets the state, `true` is checked and `false` is unchecked.",
           "type": "boolean"
+        },
+        {
+          "name": "oncheckedchange",
+          "description": "An event listener for the `change` event or null to unregister",
+          "type": "EventListener"
         },
         {
           "name": "toggles",
@@ -180,6 +193,10 @@
       ],
       "events": [
         {
+          "name": "change",
+          "description": "Dispatched when the selection change due to a user interaction."
+        },
+        {
           "name": "pressedchange",
           "description": "When the `pressed` property has changed"
         },
@@ -212,7 +229,8 @@
           "description": "Deprecated"
         },
         {
-          "name": "change"
+          "name": "checkedchange",
+          "description": "Dispatched when the `checked` property change regardless of the source of the change."
         }
       ]
     }
