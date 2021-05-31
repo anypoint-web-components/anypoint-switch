@@ -1,9 +1,3 @@
-[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-switch.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-switch)
-
-[![Build Status](https://travis-ci.com/anypoint-web-components/anypoint-switch.svg)](https://travis-ci.com/anypoint-web-components/anypoint-switch)
-
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/anypoint-web-components/anypoint-switch)
-
 # anypoint-switch
 
 Switches toggle the state of a single setting on or off. They are the preferred way to adjust settings on mobile.
@@ -12,10 +6,15 @@ This component is based on Material Design switch and adjusted for Anypoint plat
 
 Anypoint web components are set of components that allows to build Anypoint enabled UI in open source projects.
 
+[![Published on NPM](https://img.shields.io/npm/v/@anypoint-web-components/anypoint-switch.svg)](https://www.npmjs.com/package/@anypoint-web-components/anypoint-switch)
+
+[![tests](https://github.com/anypoint-web-components/anypoint-switch/actions/workflows/deployment.yml/badge.svg)](https://github.com/anypoint-web-components/anypoint-switch/actions/workflows/deployment.yml)
+
 ## Usage
 
 ### Installation
-```
+
+```sh
 npm install --save @anypoint-web-components/anypoint-switch
 ```
 
@@ -67,7 +66,7 @@ customElements.define('sample-element', SampleElement);
 
 ```sh
 git clone https://github.com/anypoint-web-components/anypoint-switch
-cd anypoint-switchpolymer test --npm
+cd anypoint-switch
 npm install
 ```
 

@@ -1,4 +1,6 @@
-import { fixture, assert, aTimeout, nextFrame } from '@open-wc/testing';
+/* eslint-disable lit-a11y/role-has-required-aria-attrs */
+/* eslint-disable lit-a11y/tabindex-no-positive */
+import { fixture, assert, aTimeout, nextFrame, html } from '@open-wc/testing';
 import * as MockInteractions from '@polymer/iron-test-helpers/mock-interactions.js';
 import '@anypoint-web-components/anypoint-styles/colors.js';
 import '../anypoint-switch.js';
@@ -10,63 +12,63 @@ describe('<anypoint-switch>', () => {
    * @returns {Promise<AnypointSwitch>}
    */
   async function basicFixture() {
-    return (fixture(`<anypoint-switch>on/off</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch>on/off</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function noLabelFixture() {
-    return (fixture(`<anypoint-switch></anypoint-switch>`));
+    return (fixture(html`<anypoint-switch></anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function checkedFixture() {
-    return (fixture(`<anypoint-switch checked>on/off</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch checked>on/off</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function tabIndexFixture() {
-    return (fixture(`<anypoint-switch tabindex="1">on/off</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch tabindex="1">on/off</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function roleFixture() {
-    return (fixture(`<anypoint-switch role="radio">Batman</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch role="radio">Batman</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function disabledFixture() {
-    return (fixture(`<anypoint-switch disabled tabindex="1">Batman</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch disabled tabindex="1">Batman</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function compatibilityFixture() {
-    return (fixture(`<anypoint-switch compatibility>on/off</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch compatibility>on/off</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<AnypointSwitch>}
    */
   async function checkedCompatibilityFixture() {
-    return (fixture(`<anypoint-switch checked compatibility>on/off</anypoint-switch>`));
+    return (fixture(html`<anypoint-switch checked compatibility>on/off</anypoint-switch>`));
   }
 
   /**
    * @returns {Promise<HTMLFormElement>}
    */
   async function formFixture() {
-    return (fixture(`<form>
+    return (fixture(html`<form>
       <anypoint-switch name="test-name" value="test-value"></anypoint-switch>
     </form>`));
   }
@@ -75,7 +77,7 @@ describe('<anypoint-switch>', () => {
    * @returns {Promise<HTMLFormElement>}
    */
   async function formCheckedFixture() {
-    return (fixture(`<form>
+    return (fixture(html`<form>
       <anypoint-switch name="test-name" value="test-value" checked></anypoint-switch>
     </form>`));
   }
@@ -84,7 +86,7 @@ describe('<anypoint-switch>', () => {
    * @returns {Promise<HTMLFormElement>}
    */
   async function formCheckedRequiredFixture() {
-    return (fixture(`<form>
+    return (fixture(html`<form>
       <anypoint-switch name="test-name" value="test-value" checked required></anypoint-switch>
     </form>`));
   }
