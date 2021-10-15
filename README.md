@@ -1,4 +1,8 @@
-# anypoint-switch
+# Deprecated
+
+This component has been moved to `anypoint-web-components/awc`.
+
+-----
 
 Switches toggle the state of a single setting on or off. They are the preferred way to adjust settings on mobile.
 
