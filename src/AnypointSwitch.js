@@ -118,14 +118,18 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     super._checkedChanged(value);
     this.setAttribute('aria-checked', value ? 'true' : 'false');
     if (this._internals) {
-      this._internals.setFormValue(value ? this.value : '');
+      if (this._internals.setFormValue) {
+        this._internals.setFormValue(value ? this.value : '');
+      }
 
-      if (!this.matches(':disabled') && this.hasAttribute('required') && !value) {
-        this._internals.setValidity({
-          customError: true
-        }, 'This field is required.');
-      } else {
-        this._internals.setValidity({});
+      if (this._internals.setValidity) {
+        if (!this.matches(':disabled') && this.hasAttribute('required') && !value) {
+          this._internals.setValidity({
+            customError: true
+          }, 'This field is required.');
+        } else {
+          this._internals.setValidity({});
+        }
       }
     } else {
       this.validate(this.checked);
@@ -133,7 +137,7 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
   }
 
   checkValidity() {
-    if (this._internals) {
+    if (this._internals && this._internals.checkValidity) {
       return this._internals.checkValidity();
     }
     return this.required ? this.checked : true;
@@ -145,11 +149,15 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
 
   formResetCallback() {
     this.checked = false;
-    this._internals.setFormValue('');
+    if (this._internals && this._internals.setFormValue) {
+      this._internals.setFormValue('')
+    }
   }
 
   formStateRestoreCallback(state) {
-    this._internals.setFormValue(state);
+    if (this._internals && this._internals.setFormValue) {
+      this._internals.setFormValue(state)
+    }
     this.checked = !!state;
   }
 
