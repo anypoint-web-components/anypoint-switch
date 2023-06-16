@@ -142,37 +142,6 @@ describe('<anypoint-switch>', () => {
     });
   });
 
-  describe('_internals', () => {
-    it('Has associated form', async () => {
-      const form = await formFixture();
-      const element = form.querySelector('anypoint-switch');
-      // @ts-ignore
-      if (element._internals && element._internals.setFormValue) {
-        assert.isTrue(element.form === form);
-      }
-    });
-
-    it('Form reset resets the control', async () => {
-      const form = await formCheckedFixture();
-      const element = form.querySelector('anypoint-switch');
-      // @ts-ignore
-      if (element._internals && element._internals.setFormValue) {
-        form.reset();
-        assert.isFalse(element.checked);
-      }
-    });
-
-    it('Sets custom validation', async () => {
-      const form = await formCheckedRequiredFixture();
-      const element = form.querySelector('anypoint-switch');
-      // @ts-ignore
-      if (element._internals && element._internals.setFormValue) {
-        element.checked = false;
-        assert.isTrue(element.matches(':invalid'));
-      }
-    });
-  });
-
   describe('compatibility', () => {
     let element;
     beforeEach(async () => {

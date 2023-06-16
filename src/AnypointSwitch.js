@@ -25,14 +25,6 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     };
   }
 
-  static get formAssociated() {
-    return true;
-  }
-
-  get form() {
-    return this._internals && this._internals.form;
-  }
-
   /**
    * @returns {EventListener} Previously registered event listener or null
    */
@@ -67,11 +59,6 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
     this.toggles = true;
     /* to work with iron-form */
     this._hasIronCheckedElementBehavior = true;
-    // @ts-ignore
-    if (this.attachInternals) {
-      // @ts-ignore
-      this._internals = this.attachInternals();
-    }
   }
 
   connectedCallback() {
@@ -117,29 +104,10 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
   _checkedChanged(value) {
     super._checkedChanged(value);
     this.setAttribute('aria-checked', value ? 'true' : 'false');
-    if (this._internals) {
-      if (this._internals.setFormValue) {
-        this._internals.setFormValue(value ? this.value : '');
-      }
-
-      if (this._internals.setValidity) {
-        if (!this.matches(':disabled') && this.hasAttribute('required') && !value) {
-          this._internals.setValidity({
-            customError: true
-          }, 'This field is required.');
-        } else {
-          this._internals.setValidity({});
-        }
-      }
-    } else {
-      this.validate(this.checked);
-    }
+    this.validate(this.checked);
   }
 
   checkValidity() {
-    if (this._internals && this._internals.checkValidity) {
-      return this._internals.checkValidity();
-    }
     return this.required ? this.checked : true;
   }
 
@@ -149,15 +117,9 @@ export class AnypointSwitch extends ButtonStateMixin(ControlStateMixin(CheckedEl
 
   formResetCallback() {
     this.checked = false;
-    if (this._internals && this._internals.setFormValue) {
-      this._internals.setFormValue('')
-    }
   }
 
   formStateRestoreCallback(state) {
-    if (this._internals && this._internals.setFormValue) {
-      this._internals.setFormValue(state)
-    }
     this.checked = !!state;
   }
 
