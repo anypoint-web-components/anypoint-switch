@@ -36,7 +36,7 @@
     "@anypoint-web-components/anypoint-checkbox": "^1.2.3",
     "@anypoint-web-components/anypoint-styles": "^1.0.3",
     "@open-wc/eslint-config": "^4.3.0",
-    "@open-wc/testing": "^2.5.33",
+    "@open-wc/testing": "^3.2.0",
     "@polymer/iron-test-helpers": "^3.0.1",
     "@web/dev-server": "^0.1.25",
     "@web/test-runner": "^0.13.20",
